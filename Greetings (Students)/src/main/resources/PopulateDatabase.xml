@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ * PopulateDatabase.xml
+ *
+ * Copyright (C) 2016 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+	
+	<!-- User accounts -->
+
+	<bean id="userAccount1" class="security.UserAccount">
+		<property name="username" value="admin" />
+		<property name="password" value="21232f297a57a5a743894a0e4a801fc3" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccount2" class="security.UserAccount">
+		<property name="username" value="customer1" />
+		<property name="password" value="ffbc4675f864e0e9aab8bdf7a0437010" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="CUSTOMER" />
+				</bean>
+			</list>
+		</property>
+	</bean>	
+	
+	<bean id="userAccount3" class="security.UserAccount">
+		<property name="username" value="customer2" />
+		<property name="password" value="5ce4d191fd14ac85a1469fb8c29b7a7b" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="CUSTOMER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccount4" class="security.UserAccount">
+		<property name="username" value="customer3" />
+		<property name="password" value="033f7f6121501ae98285ad77f216d5e7" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="CUSTOMER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Customers -->
+	
+	<!-- Customers -->
+	
+	<bean id="customer1" class="domain.Customer">
+		<property name="name" value="Customer-1" />
+		<property name="email" value="customer-1@mail.com" />
+		<property name="phone" value="customer-1-phone" />
+		<property name="address" value="Customer-1 address" />
+		<property name="userAccount" ref="userAccount2" />
+		<property name="cards">
+			<list>
+				<ref bean="card1" />
+				<ref bean="card2" />								
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="customer2" class="domain.Customer">
+		<property name="name" value="Customer-2" />
+		<property name="email" value="customer-2@mail.com" />
+		<property name="phone" value="customer-2-phone" />
+		<property name="address" value="Customer-2 address" />
+		<property name="userAccount" ref="userAccount3" />
+		<property name="cards">
+			<list>
+				<ref bean="card3" />
+				<ref bean="card4" />				
+			</list>
+		</property>
+	</bean>		
+		
+	<!-- Backgrounds -->
+	
+	<bean id="background1" class="domain.Background">
+		<property name="title" value="Christmas" />
+		<property name="filename" value="christmas.png" />		
+	</bean>
+	
+	<bean id="background2" class="domain.Background">
+		<property name="title" value="Flowers" />
+		<property name="filename" value="flowers.png" />		
+	</bean>
+	
+	<bean id="background3" class="domain.Background">
+		<property name="title" value="Love" />
+		<property name="filename" value="love.png" />		
+	</bean>
+	
+	<bean id="background4" class="domain.Background">
+		<property name="title" value="Moon" />
+		<property name="filename" value="moon.png" />		
+	</bean>
+	
+	<bean id="background5" class="domain.Background">
+		<property name="title" value="New year" />
+		<property name="filename" value="new-year.png" />		
+	</bean>
+	
+	<bean id="background6" class="domain.Background">
+		<property name="title" value="Sexy" />
+		<property name="filename" value="sexy.png" />		
+	</bean>
+	
+	<bean id="background7" class="domain.Background">
+		<property name="title" value="Sheep" />
+		<property name="filename" value="sheep.png" />		
+	</bean>
+	
+	<bean id="background8" class="domain.Background">
+		<property name="title" value="Sun" />
+		<property name="filename" value="sun.png" />		
+	</bean>
+	
+	<bean id="background9" class="domain.Background">
+		<property name="title" value="Happy birthday" />
+		<property name="filename" value="happy-birthday.png" />		
+	</bean>
+	
+	<bean id="background10" class="domain.Background">
+		<property name="title" value="Tourism" />
+		<property name="filename" value="tourism.png" />		
+	</bean>
+		
+	<!-- Cards -->
+	
+	<bean id="card1" class="domain.Card">
+		<property name="title" value="Happy birthday" />
+		<property name="text" value="Congrats on your 18th birthday! Cheers!" />		
+		<property name="background" ref="background8" />
+		<property name="customer" ref="customer1" />		
+	</bean>
+	
+	<bean id="card2" class="domain.Card">
+		<property name="title" value="Merry Christmas" />
+		<property name="text" value="I wish you a merry Christmas!" />		
+		<property name="background" ref="background1" />
+		<property name="customer" ref="customer1" />		
+	</bean>
+	
+	<bean id="card3" class="domain.Card">
+		<property name="title" value="My holidays" />
+		<property name="text" value="Hope we can meet for holidays at this wonderful place!" />		
+		<property name="background" ref="background10" />
+		<property name="customer" ref="customer1" />		
+	</bean>	
+	
+	<bean id="card4" class="domain.Card">
+		<property name="title" value="First day at work" />
+		<property name="text" value="John, have a nice day!  I'm giving you away a pot of flowers to decorate your desk. Hope this eases your first day at work!" />		
+		<property name="background" ref="background2" />
+		<property name="customer" ref="customer2" />		
+	</bean>
+	
+	<bean id="card5" class="domain.Card">
+		<property name="title" value="Sleep well" />
+		<property name="text" value="Hope you don't have to count more than a few sheep!" />		
+		<property name="background" ref="background7" />
+		<property name="customer" ref="customer2" />		
+	</bean>	
+	
+</beans>

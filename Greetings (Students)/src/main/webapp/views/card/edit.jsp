@@ -25,15 +25,15 @@
 	<form:hidden path="version" />
 	<form:hidden path="customer" />
 	<div>
-		<p>Title</p>
+		<p><spring:message code="card.title" /></p>
 		<form:input path="title" />
 	</div>
 	<div>
-		<p>Text</p>
+		<p><spring:message code="card.text" /></p>
 		<form:textarea path="text" />
 	</div>
 	<div>
-		<p>Background</p>
+		<p><spring:message code="card.background" /></p>
 		<form:select id="backgrounds" path="background">
 			<form:option value="0" label="----" />
 			<form:options items="${backgrounds}" itemValue="id" itemLabel="title" />

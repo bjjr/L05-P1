@@ -42,7 +42,7 @@
 		<div align="center">
 			<a href="card/customer/edit.do?cardId=${row.id}"
 				style="margin-right: 5vw"> <spring:message code="card.edit" />
-			</a> <a href="card/customer/display.do?cardId=${row.id}"> <spring:message
+			</a> <a href="card//display.do?cardId=${row.id}"> <spring:message
 					code="card.display" />
 			</a>
 		</div>

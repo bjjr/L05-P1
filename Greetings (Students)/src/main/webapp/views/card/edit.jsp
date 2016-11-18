@@ -22,6 +22,8 @@
 
 <form:form action="card/customer/edit.do" modelAttribute="card">
 	<form:hidden path="id" />
+	<form:hidden path="version" />
+	<form:hidden path="customer" />
 	<div>
 		<p>Title</p>
 		<form:input path="title" />

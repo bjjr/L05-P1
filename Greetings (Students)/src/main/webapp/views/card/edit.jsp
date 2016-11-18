@@ -27,10 +27,12 @@
 	<div>
 		<p><spring:message code="card.title" /></p>
 		<form:input path="title" />
+		<form:errors cssClass="error" path="title"/>
 	</div>
 	<div>
 		<p><spring:message code="card.text" /></p>
 		<form:textarea path="text" />
+		<form:errors cssClass="error" path="text"/>
 	</div>
 	<div>
 		<p><spring:message code="card.background" /></p>
